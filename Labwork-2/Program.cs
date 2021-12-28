@@ -6,70 +6,20 @@ namespace Labwork_2
     {
         static void Main(string[] args)
         {
+            // Входные данные
             Console.Write("Введите первое число: ");
             int n = Convert.ToInt32(Console.ReadLine());
             Console.Write("Введите второе число: ");
             int m = Convert.ToInt32(Console.ReadLine());
 
-            int[,] myArray = new int[n, m];
-            int startNum = n * m;
+            int[,] myArray = new int[n, m]; // Создание двумерного массива на основе введённых данных
+            int startNum = n * m; // Стартовое число (Самое верхнее правое число при выводе массива)
 
-            int offset_0 = 0;
-            int offset_1 = 1;
+            int offset_0 = 0; 
+            int offset_1 = 1; // Оффсеты - числа, увеличивающие своё значение с каждой итерацией цикла while (startNum > 0). Необходимы для постепенного "сужения" к центру массива при выводе его в виде спирали.
             int offset_2 = 2;
             int height = myArray.GetLength(0);
             int width = myArray.GetLength(1);
-
-            /*for (int x = width - 1; x >= width - (width - 0); x--)
-            {
-                myArray[height - (height - 0), x] = startNum;
-                startNum--;
-            }
-        
-            for (int y = height - (height - 1); y <= height - 1; y++)
-            {
-                myArray[y, width - (width - 0)] = startNum;
-                startNum--;
-            }
-
-            for (int x = width - (width - 1); x <= width - 1; x++)
-            {
-                myArray[height - 1, x] = startNum;
-                startNum--;
-            }
-
-            for (int y = height - 2; y >= height - (height - 1); y--)
-            {
-                myArray[y, width - 1] = startNum;
-                startNum--;
-            }
-
-            // ----------------------------
-
-            for (int x = width - 2; x >= width - (width - 1); x--)
-            {
-                myArray[height - (height - 1), x] = startNum;
-                startNum--;
-            }
-
-            for (int y = height - (height - 2); y <= height - 2; y++)
-            {
-                myArray[y, width - (width - 1)] = startNum;
-                startNum--;
-            }
-
-            for (int x = width - (width - 2); x <= width - 2; x++)
-            {
-                myArray[height - 2, x] = startNum;
-                startNum--;
-            }
-
-            for (int y = height - 3; y >= height - (height - 2); y--)
-            {
-                myArray[y, width - 2] = startNum;
-                startNum--;
-            }*/
-
 
             while (startNum > 0)
             {
@@ -77,10 +27,6 @@ namespace Labwork_2
                 {
                     myArray[height - (height - offset_0), x] = startNum;
                     startNum--;
-                    if (startNum <= 0)
-                    {
-
-                    }
                 }
                 if (startNum <= 0)
                 {
