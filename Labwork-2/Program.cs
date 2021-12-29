@@ -13,7 +13,7 @@ namespace Labwork_2
             int m = Convert.ToInt32(Console.ReadLine());
 
             int[,] myArray = new int[n, m]; // Создание двумерного массива на основе введённых данных
-            int startNum = n * m; // Стартовое число (Самое верхнее правое число при выводе массива)
+            int currentValue = n * m; // Стартовое число (Самое верхнее правое число при выводе массива)
 
             int offset_0 = 0; 
             int offset_1 = 1; // Оффсеты - числа, увеличивающие своё значение с каждой итерацией цикла while (startNum > 0). Необходимы для постепенного "сужения" к центру массива при выводе его в виде спирали.
@@ -21,44 +21,44 @@ namespace Labwork_2
             int height = myArray.GetLength(0);
             int width = myArray.GetLength(1);
 
-            while (startNum > 0)
+            while (currentValue > 0)
             {
                 for (int x = width - offset_1; x >= width - (width - offset_0); x--)
                 {
-                    myArray[height - (height - offset_0), x] = startNum;
-                    startNum--;
+                    myArray[height - (height - offset_0), x] = currentValue;
+                    currentValue--;
                 }
-                if (startNum <= 0)
+                if (currentValue <= 0)
                 {
                     break;
                 }
 
                 for (int y = height - (height - offset_1); y <= height - offset_1; y++)
                 {
-                    myArray[y, width - (width - offset_0)] = startNum;
-                    startNum--;
+                    myArray[y, width - (width - offset_0)] = currentValue;
+                    currentValue--;
                 }
-                if (startNum <= 0)
+                if (currentValue <= 0)
                 {
                     break;
                 }
 
                 for (int x = width - (width - offset_1); x <= width - offset_1; x++)
                 {
-                    myArray[height - offset_1, x] = startNum;
-                    startNum--;
+                    myArray[height - offset_1, x] = currentValue;
+                    currentValue--;
                 }
-                if (startNum <= 0)
+                if (currentValue <= 0)
                 {
                     break;
                 }
 
                 for (int y = height - offset_2; y >= height - (height - offset_1); y--)
                 {
-                    myArray[y, width - offset_1] = startNum;
-                    startNum--;
+                    myArray[y, width - offset_1] = currentValue;
+                    currentValue--;
                 }
-                if (startNum <= 0)
+                if (currentValue <= 0)
                 {
                     break;
                 }
